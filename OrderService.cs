@@ -13,7 +13,18 @@ namespace Order_Management_System
             Console.WriteLine("Creating order...");
 
 
-            ApplyDiscount(order);
+
+            if (order.TotalPrice > 1000)
+            {
+                Console.WriteLine("10% Discount Applied");
+                order.TotalPrice = order.TotalPrice * 0.1;
+            }
+
+            if (order.TotalPrice > 5000)
+            {
+                Console.WriteLine("20% Discount Applied");
+                order.TotalPrice = order.TotalPrice * 0.2;
+            }
 
             SaveOrder(order);
 
@@ -26,20 +37,6 @@ namespace Order_Management_System
 
 
 
-        public void ApplyDiscount(Order order)
-        {
-            // duplicated logic begins
-
-            if (order.TotalPrice > 1000)
-            {
-                Console.WriteLine("10% Discount Applied");
-            }
-
-            if (order.TotalPrice > 5000)
-            {
-                Console.WriteLine("20% Discount Applied");
-            }
-        }
 
 
 
@@ -89,11 +86,14 @@ namespace Order_Management_System
             if (order.TotalPrice > 1000)
             {
                 Console.WriteLine("10% Discount Applied");
+                order.TotalPrice = order.TotalPrice * 0.1;
             }
 
             if (order.TotalPrice > 5000)
             {
                 Console.WriteLine("20% Discount Applied");
+                order.TotalPrice = order.TotalPrice * 0.2;
+
             }
 
             Console.WriteLine(
